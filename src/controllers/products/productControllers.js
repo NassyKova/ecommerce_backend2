@@ -13,4 +13,12 @@ function getProductById(productId) {
   return product;
 }
 
-module.exports = { getProducts, getProductById };
+function createProduct(product) {
+  const newProduct = {
+    id: 4,
+    ...product,
+  };
+  return newProduct;
+}
+
+module.exports = { getProducts, getProductById, createProduct };
