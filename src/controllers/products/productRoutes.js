@@ -24,13 +24,14 @@ productRouter.get("/:productId", async (request, response) => {
 });
 
 productRouter.post("/", async (request, response) => {
+  console.log(request.userId)
   const product = await createProduct({
-    title: request.body.title,
-    description: request.body.description,
-    price: request.body.price,
-    stock: request.body.stock,
-  });
-  response.json(product);
-});
+      title: request.body.title,
+      description: request.body.description,
+      price: request.body.price,
+      stock: request.body.stock,
+  })
+  response.json(product)
+})
 
 module.exports = productRouter;

@@ -6,7 +6,7 @@ const cartRouter = require("./controllers/carts/cartRoutes");
 
 const app = express();
 
-// app.use(express.json());
+app.use(express.json());
 
 const PORT = 5000;
 

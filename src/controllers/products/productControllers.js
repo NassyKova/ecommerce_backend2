@@ -21,8 +21,9 @@ async function getProductById(productId) {
 }
 
 async function createProduct(product) {
-  const newProduct = await Product.create(product);
-  return newProduct;
+  //insert the product into the database and return that created product
+  const newProduct = await Product.create(product)
+  return newProduct
 }
 
 module.exports = { getProducts, getProductById, createProduct };
