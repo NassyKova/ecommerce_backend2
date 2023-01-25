@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const reviewSchema = new mongoose.Schema({
+const ReviewSchema = new mongoose.Schema({
   user_id: String,
   description: String,
 });
@@ -10,5 +10,9 @@ const ProductSchema = new mongoose.Schema({
   description: String,
   price: Number,
   stock: Number,
-  reviews: [reviewSchema],
+  reviews: [ReviewSchema], //whithot [] it's an object
 });
+
+const Product = mongoose.model("Product", ProductSchema);
+
+module.exports = Product;
