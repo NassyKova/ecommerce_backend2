@@ -37,7 +37,8 @@ function getCartById(cartId) {
 }
 
 function getCartByUserId(userId) {
-  const cartByUserId = carts.find((cart) => cart.user_id === Number(userId));
+  const cartByUserId = carts.find((cart) => cart.user_id == +userId);
+  // +user - means it's a number
   return cartByUserId;
 }
 
