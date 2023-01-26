@@ -7,6 +7,9 @@ const {
   deleteProduct,
 } = require("./productControllers");
 
+const auth = require("../../middlewares/auth")
+// const admin = require("../../middlewares/admin")
+
 const productRouter = express.Router();
 
 productRouter.get("/", async (request, response) => {
@@ -24,7 +27,7 @@ productRouter.get("/:productId", async (request, response) => {
   response.json(product);
 });
 
-productRouter.post("/", async (request, response) => {
+productRouter.post("/", auth, async (request, response) => {
   console.log(request.userId);
   const product = await createProduct({
     title: request.body.title,
@@ -35,7 +38,7 @@ productRouter.post("/", async (request, response) => {
   response.json(product);
 });
 
-productRouter.delete("/:productId", async (request, response) => {
+productRouter.delete("/:productId", auth, async (request, response) => {
   const product = await deleteProduct(request.params.productId);
   response.json(product);
 });
