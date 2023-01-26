@@ -1,4 +1,3 @@
-
 const Product = require("../../models/product")
 
 async function getProducts() {
